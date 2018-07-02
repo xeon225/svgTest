@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    <scaleLinear1></scaleLinear1>
+  <div class="clearfix padding20">
+    <scaleLinear1 class="box-span6 margin10 bg-color1 padding10"></scaleLinear1>
     <!-- <router-link to="/ScaleLinear_1">123123123213</router-link> -->
   </div>
 </template>
@@ -23,18 +23,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.bg-color1{
+  background: #554378;
 }
 </style>
