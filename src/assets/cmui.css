@@ -6039,5 +6039,12 @@ pre {
     background: #fff; }
     .show-nav.nav {
       width: 250px; } }
+html {
+  background: #292536;
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 5px, transparent 0, transparent 10px), repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 5px, transparent 0, transparent 10px); }
+
 html, body {
   height: 100%; }
+
+.borderb {
+  border-color: #8773b1; }

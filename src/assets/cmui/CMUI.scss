@@ -19,6 +19,22 @@
 
 @import "global";
 
+html{
+	background:#292536;
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.1),
+      hsla(0,0%,100%,.1) 5px,
+      transparent 0,
+      transparent 10px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.1),
+      hsla(0,0%,100%,.1) 5px,
+      transparent 0,
+      transparent 10px);
+}
 html,body{
 	height:100%;
+}
+.borderb{
+	border-color:#8773b1;
 }

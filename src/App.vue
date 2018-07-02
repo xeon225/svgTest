@@ -1,17 +1,21 @@
 <template>
   <div id="app" class="flex-container vfull">
-    <div class="appLeft">
-      1
+    <div class="appLeft text-white">
+      <div class="logo flex-container center borderb">
+        <i class="icon-logo" style="font-size:40px;"></i>
+      </div>
     </div>
-    <div class="appRight flex1"></div>
-    <!-- <img src="./assets/logo.png"> -->
-    <!-- <router-view/> -->
+    <div class="appRight flex1">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+  }
 }
 </script>
 
@@ -22,5 +26,9 @@ export default {
 .appLeft{
   width:130px;
   background: #7762a4;
+}
+.logo{
+  width:130px;
+  height:130px;
 }
 </style>
