@@ -6048,3 +6048,12 @@ html, body {
 
 .borderb {
   border-color: #8773b1; }
+
+.strokeFill {
+  stroke: #715f95;
+  stroke-width: 1; }
+
+.svgBox {
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 20px #222;
+          box-shadow: 0px 0px 20px #222; }

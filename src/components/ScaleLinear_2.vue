@@ -1,5 +1,5 @@
-<template>
-  <div class="scaleLinear scaleLinear_1" ref="linear_1">
+1<template>
+  <div class="scaleLinear scaleLinear_2" ref="linear_2">
     
   </div>
 </template>
@@ -41,7 +41,7 @@ export default {
   methods: {
     scaleLinear: function(w) {
       //画布大小
-      var width = w || window.getComputedStyle(this.$refs.linear_1).width.replace('px', '');;
+      var width = w || window.getComputedStyle(this.$refs.linear_2).width.replace('px', '');;
       var padding = {
         left: 30,
         right: 30,
@@ -51,8 +51,8 @@ export default {
       width = width - 40;
       var height = 200;
       //在 body 里添加一个 SVG 画布 
-      var removed = d3.select(".scaleLinear_1").selectAll("svg").remove();
-      var svg = d3.select(".scaleLinear_1")
+      var removed = d3.select(".scaleLinear_2").selectAll("svg").remove();
+      var svg = d3.select(".scaleLinear_2")
         .selectAll("svg")
         .data([1])
         .enter()
@@ -198,7 +198,7 @@ export default {
         .call(yAxis);
     },
     widthCol: function() {
-      var linear_1 = window.getComputedStyle(this.$refs.linear_1).width.replace('px', '');
+      var linear_1 = window.getComputedStyle(this.$refs.linear_2).width.replace('px', '');
       this.scaleLinear(linear_1)
     }
   }
