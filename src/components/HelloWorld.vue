@@ -1,29 +1,47 @@
 <template>
-  <div class="clearfix padding20">
-    <div class="box-span6">
-      <scaleLinear1 class="margin10 bg-color1 padding20 svgBox"></scaleLinear1>
+  <div>
+    <div class="clearfix">
+      <div class="box-span12">
+        <scaleLinear3 class="bg-color1" :swidth="screenWidth"></scaleLinear3>
+      </div>
     </div>
-    <div class="box-span6">
-      <scaleLinear2 class="margin10 bg-color1 padding20 svgBox"></scaleLinear2>
+    <div class="clearfix padding10">
+      <div class="box-span6">
+        <scaleLinear1 class="margin10 bg-color1 padding20 svgBox" :swidth="screenWidth"></scaleLinear1>
+      </div>
+      <div class="box-span6">
+        <scaleLinear2 class="margin10 bg-color1 padding20 svgBox" :swidth="screenWidth"></scaleLinear2>
+      </div>
+      <!-- <router-link to="/ScaleLinear_1">123123123213</router-link> -->
     </div>
-    <!-- <router-link to="/ScaleLinear_1">123123123213</router-link> -->
   </div>
 </template>
 
 <script>
 import scaleLinear1 from './ScaleLinear_1.vue';
 import scaleLinear2 from './ScaleLinear_2.vue';
+import scaleLinear3 from './ScaleLinear_3.vue';
 
 export default {
   name: 'HelloWorld',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      screenWidth: document.body.clientWidth
+    }
+  },
+  mounted() {
+    const that = this
+    window.onresize = () => {
+      return (() => {
+        window.screenWidth = document.body.clientWidth
+        that.screenWidth = window.screenWidth
+      })()
     }
   },
   components: {
     scaleLinear1,
-    scaleLinear2
+    scaleLinear2,
+    scaleLinear3
   }
 }
 </script>

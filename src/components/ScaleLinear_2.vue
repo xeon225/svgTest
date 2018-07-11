@@ -1,205 +1,145 @@
-1<template>
-  <div class="scaleLinear scaleLinear_2" ref="linear_2">
+<template>
+  <div class="scaleLinear scaleLinear_2 flex-container center" ref="linear_2">
     
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ScaleLinear',
+  name: 'ScaleLinear_2',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      screenWidth: document.body.clientWidth
+      // screenWidth_2: document.body.clientWidth
     }
   },
+  props: ['swidth'],
   watch: {
-    screenWidth(val) {
-      if (!this.timer) {
-        this.screenWidth = val
-        this.timer = true
-        let that = this
-        setTimeout(function() {
-          // that.screenWidth = that.$store.state.canvasWidth
-          // console.log(that.screenWidth)
-          that.widthCol(val)
-          that.timer = false
-        }, 400)
-      }
+    swidth(val) {
+      var linear_2 = window.getComputedStyle(this.$refs.linear_2).width.replace('px', '');
+      this.scaleLinear(linear_2)
     }
   },
   mounted() {
     this.scaleLinear();
-    const that = this
-    window.onresize = () => {
-      return (() => {
-        window.screenWidth = document.body.clientWidth
-        that.screenWidth = window.screenWidth
-      })()
-    }
   },
   methods: {
     scaleLinear: function(w) {
-      //画布大小
-      var width = w || window.getComputedStyle(this.$refs.linear_2).width.replace('px', '');;
-      var padding = {
-        left: 30,
-        right: 30,
-        top: 20,
-        bottom: 20
+      // var SvgWidth = w || window.getComputedStyle(this.$refs.linear_2).width.replace('px', '');
+      var SvgWidth = 320;
+      var width = 220;
+      var height = 220;
+      var testN = [0];
+      var dataset = {
+        data : [ 70 , 18 , 12 ],
+        datacolor : [ "#846bb9" , "#ffc000" , "#ff1e6d"]
       };
-      width = width - 40;
-      var height = 200;
-      //在 body 里添加一个 SVG 画布 
+
+      // var datacolor = [ "#846bb9" , "#ffc000" , "#ff1e6d"];
       var removed = d3.select(".scaleLinear_2").selectAll("svg").remove();
       var svg = d3.select(".scaleLinear_2")
-        .selectAll("svg")
-        .data([1])
-        .enter()
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height + 20);
-      var g = svg.append("g")
-        .attr("transform", "translate(0,20)");
-      //画布周边的空白
+            .append("svg")
+            .attr("width", SvgWidth)
+            .attr("height", height);
+      
+      var pie = d3.layout.pie();
 
+      var piedata = pie(dataset.data);
+      
+      var outerRadius = 100;  //外半径
+      var innerRadius = 50;  //内半径，为0则中间没有空白
 
-      //定义一个数组
-      var dataset = [{
-        data: 90,
-        color: "#846bb9"
-      }, {
-        data: 45,
-        color: "#ae91ec"
-      }, {
-        data: 20,
-        color: "#ffc000"
-      }, {
-        data: 5,
-        color: "#ff1e6d"
-      }];
-      var datasets = [90, 45, 20, 5];
-      //x轴的比例尺
-      var xScale = d3.scale.ordinal()
-        .domain(d3.range(dataset.length))
-        .rangeRoundBands([0, width - padding.left - padding.right]);
-
-      //y轴的比例尺
-      var yScale = d3.scale.linear()
-        .domain([0, 100])
-        .range([height - padding.top - padding.bottom, 0]);
-
-      //定义x轴
-      var xAxis = d3.svg.axis()
-        .scale(xScale)
-        .orient("bottom")
-        .tickFormat(function(d) {
-          return d > 0 ? d + " Repeat" : "New";
-        });
-
-      //定义y轴
-      var yAxis = d3.svg.axis()
-        .scale(yScale)
-        .orient("left")
-        .tickValues([0, 25, 50, 75, 100]);
-
-      //矩形之间的空白
-      var rectPadding = 20;
-
-      //添加线形元素
-      var lines = g.selectAll(".MyLine")
-        .data([1, 2, 3, 4, 5])
-        .enter()
-        .append("line")
-        .attr("class", "MyLine strokeFill")
-        .attr("fill", "white")
-        .attr("transform", "translate(0," + padding.top + ")")
-        .attr("x1", function(d) {
-          return 0;
+      var arc = d3.svg.arc()  //弧生成器
+            .innerRadius(innerRadius) //设置内半径
+            .outerRadius(outerRadius);  //设置外半径
+      var arc_2 = d3.svg.arc()  //弧生成器
+            .innerRadius(innerRadius+10) //设置内半径
+            .outerRadius(outerRadius+10);  //设置外半径
+      
+      // var color = d3.scale.category10();
+      
+      var arcs = svg.selectAll("g")
+              .data(piedata)
+              .enter()
+              .append("g")
+              .attr("transform","translate("+ (width/2) +","+ (width/2) +")");
+              
+      arcs.append("path")
+        .attr("fill",function(d,i){
+          // console.log(i)
+          // return color(i);
+          return dataset.datacolor[i]
         })
-        .attr("y1", function(d, i) {
-          return i * height / 5;
-        })
-        .attr("x2", function(d) {
-          return width;
-        })
-        .attr("y2", function(d, i) {
-          return i * height / 5;
-        });
-
-      //添加矩形元素
-      var rects = g.selectAll(".MyRect")
-        .data(dataset)
-        .enter()
-        .append("rect")
-        .attr("class", "MyRect")
-        .attr("fill", function(d, i) {
-          return d.color
-        })
-        .attr("transform", "translate(" + padding.left + "," + padding.top + ")")
-        .attr("x", function(d, i) {
-          return xScale(i) + rectPadding / 2;
-        })
-        .attr("y", function(d) {
-          return yScale(d.data);
-        })
-        .attr("width", xScale.rangeBand() - rectPadding)
-        .attr("height", function(d) {
-          return height - padding.top - padding.bottom - yScale(d.data);
+        .attr("d",function(d,i){
+          // console.log(pie([30])[0])
+          // console.log(d)
+          return arc(d);
         })
         .on("mouseover",function(d,i){
             d3.select(this)
-                .attr("fill","white");
+            .transition()
+            .duration(300)
+            .attr("d",function(d,i){
+              return arc_2(d);
+            });  
         })
         .on("mouseout",function(d,i){
-            d3.select(this)
-                .transition()
-                .duration(500)
-                .attr("fill", function(d, i) {
-                  return d.color
-                })
+          d3.select(this)
+            .transition()
+            .duration(300)
+            .attr("fill", function(d) {
+              return dataset.datacolor[i]
+            })
+            .attr("d",function(d,i){
+              return arc(d);
+            });  
         });
-
-
-
-      //添加文字元素
-      // var texts = g.selectAll(".MyText")
-      //   .data(dataset)
-      //   .enter()
-      //   .append("text")
-      //   .attr("class","MyText")
-      //   .attr("transform","translate(" + padding.left + "," + padding.top + ")")
-      //   .attr("x", function(d,i){
-      //     return xScale(i) + rectPadding/2;
-      //   } )
-      //   .attr("y",function(d){
-      //     return yScale(d);
+      // arcs.transition()
+      //   .duration(300)
+      //   .delay(function (d,i){
+      //     return i * 200
       //   })
-      //   .attr("dx",function(){
-      //     return (xScale.rangeBand() - rectPadding)/2;
-      //   })
-      //   .attr("dy",function(d){
-      //     return 20;
-      //   })
-      //   .text(function(d){
-      //     return d;
+      //   .attr("d",function(d,i){
+      //     return arc(d);
       //   });
 
-      //添加x轴
-      g.append("g")
-        .attr("class", "axis")
-        .attr("transform", "translate(" + padding.left + "," + (height - padding.bottom) + ")")
-        .call(xAxis);
 
-      //添加y轴
-      g.append("g")
-        .attr("class", "axis")
-        .attr("transform", "translate(" + padding.left + ",0)")
-        .call(yAxis);
+      var gText = svg.append("g")
+        .attr("transform",function(d,i){
+          return "transform","translate(0,55)";
+        })
+      gText.selectAll("g")
+        .data(dataset.data)
+        .enter()
+        .append("text")
+        .attr("fill","white")
+        .attr("class","fs-11")
+        .attr("transform",function(d,i){
+          return "transform","translate("+ (width+80) +","+ (17 + i * 40) +")";
+        })
+        .text(function(d){
+          return d;
+        });
+      gText.selectAll("g")
+        .data(dataset.datacolor)
+        .enter()
+        .append("rect")
+        .attr("width", 26)
+        .attr("height", 26)
+        .attr("fill",function(d,i){
+          return d
+        })
+        .attr("transform",function(d,i){
+          return "transform","translate("+ (width+45) +","+ (0 + i * 40) +")";
+        })
+        .text(function(d){
+          return d;
+        });
+      // console.log(dataset);
+      // console.log(piedata);
     },
     widthCol: function() {
-      var linear_1 = window.getComputedStyle(this.$refs.linear_2).width.replace('px', '');
-      this.scaleLinear(linear_1)
+      var linear_2 = window.getComputedStyle(this.$refs.linear_2).width.replace('px', '');
+      this.scaleLinear(linear_2)
     }
   }
 }

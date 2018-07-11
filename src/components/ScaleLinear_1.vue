@@ -1,47 +1,31 @@
 <template>
-  <div class="scaleLinear scaleLinear_1" ref="linear_1">
+  <div class="scaleLinear scaleLinear_1 flex-container center" ref="linear_1">
     
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ScaleLinear',
+  name: 'ScaleLinear_1',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      screenWidth: document.body.clientWidth
+      // screenWidth_1: document.body.clientWidth
     }
   },
+  props: ['swidth'],
   watch: {
-    screenWidth(val) {
-      if (!this.timer) {
-        this.screenWidth = val
-        this.timer = true
-        let that = this
-        setTimeout(function() {
-          // that.screenWidth = that.$store.state.canvasWidth
-          // console.log(that.screenWidth)
-          that.widthCol(val)
-          that.timer = false
-        }, 400)
-      }
+    swidth(val) {
+      var linear_1 = window.getComputedStyle(this.$refs.linear_1).width.replace('px', '');
+      this.scaleLinear(linear_1)
     }
   },
   mounted() {
     this.scaleLinear();
-    const that = this
-    window.onresize = () => {
-      return (() => {
-        window.screenWidth = document.body.clientWidth
-        that.screenWidth = window.screenWidth
-      })()
-    }
   },
   methods: {
     scaleLinear: function(w) {
       //画布大小
-      var width = w || window.getComputedStyle(this.$refs.linear_1).width.replace('px', '');;
+      var width = w || window.getComputedStyle(this.$refs.linear_1).width.replace('px', '');
       var padding = {
         left: 30,
         right: 30,
@@ -78,7 +62,6 @@ export default {
         data: 5,
         color: "#ff1e6d"
       }];
-      var datasets = [90, 45, 20, 5];
       //x轴的比例尺
       var xScale = d3.scale.ordinal()
         .domain(d3.range(dataset.length))
@@ -141,26 +124,33 @@ export default {
           return xScale(i) + rectPadding / 2;
         })
         .attr("y", function(d) {
-          return yScale(d.data);
+          return (yScale(d.data) + height - padding.top - padding.bottom - yScale(d.data));
         })
         .attr("width", xScale.rangeBand() - rectPadding)
-        .attr("height", function(d) {
-          return height - padding.top - padding.bottom - yScale(d.data);
-        })
+        .attr("height", 0)
         .on("mouseover",function(d,i){
             d3.select(this)
-                .attr("fill","white");
+              .transition()
+              .duration(200)
+              .style("fill-opacity",0.7);
         })
         .on("mouseout",function(d,i){
             d3.select(this)
-                .transition()
-                .duration(500)
-                .attr("fill", function(d, i) {
-                  return d.color
-                })
+              .transition()
+              .duration(200)
+              .style("fill-opacity",1);
         });
-
-
+      rects.transition()
+        .duration(300)
+        .delay(function (d,i){
+          return i * 200
+        })
+        .attr("y", function(d) {
+          return yScale(d.data);
+        })
+        .attr("height", function(d) {
+          return height - padding.top - padding.bottom - yScale(d.data);
+        })
 
       //添加文字元素
       // var texts = g.selectAll(".MyText")
@@ -196,10 +186,6 @@ export default {
         .attr("class", "axis")
         .attr("transform", "translate(" + padding.left + ",0)")
         .call(yAxis);
-    },
-    widthCol: function() {
-      var linear_1 = window.getComputedStyle(this.$refs.linear_1).width.replace('px', '');
-      this.scaleLinear(linear_1)
     }
   }
 }
