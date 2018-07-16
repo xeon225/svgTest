@@ -38,4 +38,8 @@ export default {
 .bg-color1{
   background: #554378;
 }
+rect{
+  box-shadow: 0 0 10px #f00;
+  border:1px solid green
+}
 </style>
