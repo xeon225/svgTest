@@ -2,7 +2,8 @@
   <div id="app" class="flex-container vfull">
     <div class="appLeft text-white">
       <div class="logo flex-container center borderb">
-        <img src="./assets/sun.svg" alt="">
+        <img :src="weather[Math.floor(Math.random()*7)]" alt="">
+        <!-- <img src="./assets/sun.svg" alt=""> -->
         <!-- <i class="icon-logo" style="font-size:40px;"></i> -->
       </div>
       <div class="text-white">
@@ -25,6 +26,17 @@
 <script>
 export default {
   name: 'App',
+  data(){
+    return {
+      weather:[
+       require("./assets/sun.svg")
+      ,require("./assets/cloudy.svg")
+      ,require("./assets/fog.svg")
+      ,require("./assets/snow.svg")
+      ,require("./assets/thundert.svg")
+      ,require("./assets/wind.svg")]
+    }
+  },
   components: {
   }
 }
