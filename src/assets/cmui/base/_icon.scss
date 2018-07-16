@@ -24,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-led:before {
+  content: "\e94c";
+}
 .icon-tgfe .path1:before {
   content: "\e904";
   color: rgb(0, 0, 0);

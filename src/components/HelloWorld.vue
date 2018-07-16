@@ -1,47 +1,21 @@
 <template>
-  <div>
-    <div class="clearfix">
-      <div class="box-span12">
-        <scaleLinear3 class="bg-color1" :swidth="screenWidth"></scaleLinear3>
-      </div>
+  <div class="flex-container left padding10">
+    <div style="width:100px;height:100px;" class="flex-container center bg-color1 margin10">
+      <router-link to="/led" class="text-white"><i class="icon-led" style="font-size:40px;"></i></router-link>
     </div>
-    <div class="clearfix padding10">
-      <div class="box-span6">
-        <scaleLinear1 class="margin10 bg-color1 padding20 svgBox" :swidth="screenWidth"></scaleLinear1>
-      </div>
-      <div class="box-span6">
-        <scaleLinear2 class="margin10 bg-color1 padding20 svgBox" :swidth="screenWidth"></scaleLinear2>
-      </div>
-      <!-- <router-link to="/ScaleLinear_1">123123123213</router-link> -->
+    <div style="width:100px;height:100px;" class="flex-container center bg-color1 margin10">
+      <router-link to="/ScaleLinear" class="text-white"><i class="icon-nav_yhxwfx" style="font-size:40px;"></i></router-link>
     </div>
   </div>
 </template>
 
 <script>
-import scaleLinear1 from './ScaleLinear_1.vue';
-import scaleLinear2 from './ScaleLinear_2.vue';
-import scaleLinear3 from './ScaleLinear_3.vue';
 
 export default {
   name: 'HelloWorld',
   data() {
     return {
-      screenWidth: document.body.clientWidth
     }
-  },
-  mounted() {
-    const that = this
-    window.onresize = () => {
-      return (() => {
-        window.screenWidth = document.body.clientWidth
-        that.screenWidth = window.screenWidth
-      })()
-    }
-  },
-  components: {
-    scaleLinear1,
-    scaleLinear2,
-    scaleLinear3
   }
 }
 </script>
