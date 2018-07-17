@@ -3,6 +3,8 @@
     <div class="clearfix">
       <div class="box-span12">
         <ledAdd class="margint20 marginh20" :swidth="screenWidth"></ledAdd>
+        <ledShow :swidth="screenWidth"></ledShow>
+        <ledNum :swidth="screenWidth"></ledNum>
       </div>
     </div>
   </div>
@@ -10,6 +12,8 @@
 
 <script>
 import ledAdd from './ledAdd.vue';
+import ledShow from './ledShow.vue';
+import ledNum from './ledNum.vue';
 
 export default {
   name: 'led',
@@ -28,7 +32,9 @@ export default {
     }
   },
   components: {
-    ledAdd
+    ledAdd,
+    ledShow,
+    ledNum
   }
 }
 </script>
@@ -38,8 +44,5 @@ export default {
 .bg-color1{
   background: #554378;
 }
-rect{
-  box-shadow: 0 0 10px #f00;
-  border:1px solid green
-}
+
 </style>

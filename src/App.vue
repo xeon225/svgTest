@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class="flex-container vfull">
-    <div class="appLeft text-white">
+  <div id="app">
+    <div class="appLeft text-white pos-f left0 top0 bottom0">
       <div class="logo flex-container center borderb">
         <img :src="weather[Math.floor(Math.random()*7)]" alt="">
         <!-- <img src="./assets/sun.svg" alt=""> -->
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="appRight flex1">
+    <div class="appRight" style="padding-left:130px;">
       <router-view></router-view>
     </div>
   </div>
