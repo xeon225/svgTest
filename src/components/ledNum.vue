@@ -3,7 +3,8 @@
     <div class="flex-container-col vfull bg-color1">
       <div class="flex-container center paddingv20 paddingh10 ledNum bg-black"></div>
       <div class="flex-container center">
-        <button class="numStart margint10 btn black small radius">开始</button>
+        <button class="numStart margint10 btn black small radius">渐变</button>
+        <button class="numNon margint10 btn black small radius">逐行</button>
       </div>
     </div>
   </div>
@@ -80,7 +81,17 @@ export default {
       d3.select(".numStart").on("click",function(){
         that.show(svg,allArray,0)
       })
-      
+      //数据逐行切换
+      var newDataDU = [].concat.apply([],allArray)  //数据从下到上
+      var newDataUD = [].concat.apply([],allArray.reverse())  //数据从上到下
+     
+
+
+      var newDataLength = allArray.length
+      //数据逐行从下到上
+      d3.select(".numNon").on("click",function(){
+        that.non(svg,newDataDU,0,newDataLength)
+      })
       
     },
     dataReturn: function(d){
@@ -109,6 +120,26 @@ export default {
             that.show(svg,datas,i+1)
           })
       }
+    },
+    non: function(svg,datas,i,length){
+      var that = this;
+      // console.log(datas.slice)
+      console.log(i)
+      if (i <= (length-1)*that.num) {
+        var newData = datas.slice(i*that.num+0,i*that.num+that.num*that.num)
+        var an = svg.selectAll("rect")
+          .data(newData)
+          .transition()
+          .delay(100*i)
+          .duration(2000)
+          .attr("class", function(d){
+            return d == 0 ? "MyRect" : "Selected"
+          })
+          .call(function(){
+            that.non(svg,datas,i+1,length)
+          })
+      }
+      
     }
   }
 }
