@@ -1,7 +1,10 @@
 <template>
   <div>    
-    <div class="clearfix bg-black margint20 paddingv20 paddingh10">
-      <div class="float-left marginh10 ledNum"></div>
+    <div class="flex-container-col vfull bg-color1">
+      <div class="flex-container center paddingv20 paddingh10 ledNum bg-black"></div>
+      <div class="flex-container center">
+        <button class="numStart margint10 btn black small radius">开始</button>
+      </div>
     </div>
   </div>
   
@@ -30,13 +33,14 @@ export default {
   methods: {
     ledNum: function() {
       var that = this;
-      var dataNew = that.dataReturn(d3.set(that.datas[0].arrayNew));
-      var width = 100;
+      // var dataNew = that.dataReturn(d3.set(that.datas[0].arrayNew));
+      var width = 200;
       var num = this.num;
-      var height = 100;
+      var height = 200;
       // console.log(that.data_100)
-      
-      Vue.nextTick(function() {
+      var allArray = that.datas.map(function(n,i){
+        return that.dataReturn(d3.set(n.arrayNew))
+      })
         var svg = d3.select(".ledNum")
         .selectAll("svg")
         .data([1])
@@ -49,7 +53,7 @@ export default {
       var g = svg.append("g")
         .attr("transform", "translate(0,0)");
       var rects = g.selectAll(".MyRect")
-        .data(dataNew)
+        .data(that.data_100)
         .enter()
         .append("rect")
         .attr("class", function(d){
@@ -69,19 +73,13 @@ export default {
         .attr("fill", '#846bb9')
         .attr("width", width/num)
         .attr("height", height/num)
-      // console.log(that.dataReturn(d3.set(that.datas[1].arrayNew)))
-      var an = svg.selectAll("rect")
-        .data(that.dataReturn(d3.set(that.datas[1].arrayNew)))
-        .transition()
-        .delay(2000)
-        .duration(2000)
-        // .ease("bounce")
-        .attr("class", function(d){
-          return d == 0 ? "MyRect" : "Selected"
+        .call(function(){
+          that.show(svg,allArray,0)
         })
-        .call(that.test);
-        // console.log(an)
-      });
+      d3.select(".numStart").on("click",function(){
+        that.show(svg,allArray,0)
+      })
+      
       
     },
     dataReturn: function(d){
@@ -91,8 +89,25 @@ export default {
       });
       return data
     },
-    test: function(){
-      console.log(123123)
+    show: function(svg,datas,i){
+      var that = this;
+      var length = datas.length;
+      if (length > i) {
+        var an = svg.selectAll("rect")
+          .data(datas[i])
+          .transition()
+          .delay(function(d,t){
+            return i*1000+t*5
+          })
+          .duration(2000)
+          // .ease("bounce")
+          .attr("class", function(d){
+            return d == 0 ? "MyRect" : "Selected"
+          })
+          .call(function(){
+            that.show(svg,datas,i+1)
+          })
+      }
     }
   }
 }
