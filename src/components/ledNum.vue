@@ -73,9 +73,10 @@ export default {
         .attr("fill", '#846bb9')
         .attr("width", width/num)
         .attr("height", height/num)
-        .call(function(){
-          that.show(svg,allArray,0)
-        })
+        // .call(function(){
+        //   that.show(svg,allArray,0)
+        // })
+      //数据渐变
       d3.select(".numStart").on("click",function(){
         that.show(svg,allArray,0)
       })
