@@ -1,6 +1,6 @@
 <template>
   <div class="flex-container-col vfull center bg-color1">
-    <div class="flex-container center ledAdd bg-black paddingv50 flex1">
+    <div class="flex-container center emojiAdd bg-black paddingv50 flex1">
       <!-- <div class="clearfix paddingv20">
         <div class="array float-left text-center" :style="'width:'+num+'%'" v-for="item in ledArray" v-text="item ? 1 : 0">
         </div>
@@ -16,25 +16,29 @@
 
 <script>
 import Vue from 'vue';
+import emojiData from '../json/emojiData.json';
 
 export default {
-  name: 'ledAdd',
+  name: 'emojiAdd',
   data() {
     return {
       // screenWidth_1: document.body.clientWidth;
       ledArray:'',
-      outD:'',
-      num:10
+      num:20,
+      dataAdd:emojiData.svg.number[0],
+      datas:emojiData.svg.number,
+      data_400:Object.keys(Array.apply(null, {length:400})).map(function(item){return 0;}),
+      outD:''
     }
   },
   watch: {
     
   },
   mounted() {
-    this.ledAdd();
+    this.emojiAdd();
   },
   methods: {
-    ledAdd: function() {
+    emojiAdd: function() {
       var that = this;
       var width = 400;
       var num = this.num;
@@ -46,12 +50,14 @@ export default {
         bottom: 20
       };
       var height = 400;
-      var data = Object.keys(Array.apply(null, {length:num*num})).map(function(item){
-          return false;
-        });
+      // var data = Object.keys(Array.apply(null, {length:num*num})).map(function(item,i){
+      //   return false;
+      // });
+      var data = that.dataReturn(d3.set(that.dataAdd.arrayNew))
+      console.log(data)
       //在 body 里添加一个 SVG 画布 
-      var removed = d3.select(".ledAdd").selectAll("svg").remove();
-      var svg = d3.select(".ledAdd")
+      var removed = d3.select(".emojiAdd").selectAll("svg").remove();
+      var svg = d3.select(".emojiAdd")
         .selectAll("svg")
         .data([1])
         .enter()
@@ -65,22 +71,28 @@ export default {
       var rects = g.selectAll(".MyRect")
         .data(data)
         .enter()
-        .append("rect")
-        .attr("class", 'MyRect')
+        .append("rect",function(d,i){
+          return false
+        })
+        .attr("class", function(d){
+          return d == 0 ? 'MyRect' : 'Selected'
+        })
+        .attr("fill", function(d){
+          return d == 0 ? '#846bb9' : '#ff1e6d'
+        })
         // .attr("transform", "translate(0," + padding.top + ")")
         .attr("x", function(d, i) {
-          return i%num * width / num;
+          return (i%num * width / num)+2;
         })
         .attr("y", function(d, i) {
-          return parseInt(i/num) * height / num;
+          return (parseInt(i/num) * height / num)+2;
         })
-        .attr("rx", num*2)
-        .attr("ry", num*2)
-        .attr("stroke-width", num/2)
-        .attr("stroke", '#000')
-        .attr("fill", '#846bb9')
-        .attr("width", width/num)
-        .attr("height", height/num)
+        .attr("rx", num/5)
+        .attr("ry", num/5)
+        .attr("stroke-width", num/5)
+        .attr("stroke-dasharray", '5,5')
+        .attr("width", (width/num)-4)
+        .attr("height", (height/num)-4)
         .on("click",function(d,i){
           that.outD = [];
           d3.select(this)
@@ -115,6 +127,13 @@ export default {
         .attr("class", 'MyRect')
         .attr("style", '')
       that.ledArray = []
+    },
+    dataReturn: function(d){
+      var that = this;
+      var data = that.data_400.map(function(n,index){
+        return d.has(index) ? 1 : 0;
+      });
+      return data
     }
   }
 }

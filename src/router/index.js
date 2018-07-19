@@ -6,6 +6,7 @@ import ScaleLinear_1 from '@/components/ScaleLinear_1';
 import ScaleLinear_2 from '@/components/ScaleLinear_2';
 import ScaleLinear_3 from '@/components/ScaleLinear_3';
 import Led from '@/components/led';
+import Emoji from '@/components/emoji';
 
 Vue.use(Router)
 
@@ -34,5 +35,9 @@ export default new Router({
     path: '/Led',
     name: 'Led',
     component: Led
+  }, {
+    path: '/Emoji',
+    name: 'Emoji',
+    component: Emoji
   }]
 })

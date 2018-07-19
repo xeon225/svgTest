@@ -12,6 +12,9 @@
             <router-link to="/led" class="text-white"><i class="icon-led" style="font-size:40px;"></i></router-link>
           </div>
           <div style="height:100px;" class="flex-container center">
+            <router-link to="/emoji" class="text-white"><img src="./assets/smile.svg" width="40" alt=""><!-- <i class="icon-led" style="font-size:40px;"></i> --></router-link>
+          </div>
+          <div style="height:100px;" class="flex-container center">
             <router-link to="/ScaleLinear" class="text-white"><i class="icon-nav_yhxwfx" style="font-size:40px;"></i></router-link>
           </div>
         </div>

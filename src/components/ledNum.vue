@@ -2,9 +2,10 @@
   <div>    
     <div class="flex-container-col vfull bg-color1">
       <div class="flex-container center paddingv20 paddingh10 ledNum bg-black"></div>
-      <div class="flex-container center">
-        <button class="numStart margint10 btn black small radius">渐变</button>
-        <button class="numNon margint10 btn black small radius">逐行</button>
+      <div class="flex-container center padding10">
+        <button class="numStart margint10 btn black small radius margin10">渐变</button>
+        <button class="nonDU margint10 btn black small radius margin10">从下到上</button>
+        <button class="nonUD margint10 btn black small radius margin10">从下到上</button>
       </div>
     </div>
   </div>
@@ -82,15 +83,17 @@ export default {
         that.show(svg,allArray,0)
       })
       //数据逐行切换
-      var newDataDU = [].concat.apply([],allArray)  //数据从下到上
-      var newDataUD = [].concat.apply([],allArray.reverse())  //数据从上到下
+      var newDataDU = [].concat.apply([],allArray)  //数据从下到上 0-9
+      var newDataUD = [].concat.apply([],allArray.reverse())  //数据从上到下 9-0
      
-
-
       var newDataLength = allArray.length
       //数据逐行从下到上
-      d3.select(".numNon").on("click",function(){
-        that.non(svg,newDataDU,0,newDataLength)
+      d3.select(".nonDU").on("click",function(){
+        that.nonDU(svg,newDataDU,0,newDataLength)
+      })
+      //数据逐行从上到下
+      d3.select(".nonUD").on("click",function(){
+        that.nonUD(svg,newDataUD,(newDataLength-1)*that.num,0)
       })
       
     },
@@ -121,12 +124,12 @@ export default {
           })
       }
     },
-    non: function(svg,datas,i,length){
+    nonDU: function(svg,datas,i,length){
       var that = this;
       // console.log(datas.slice)
       console.log(i)
       if (i <= (length-1)*that.num) {
-        var newData = datas.slice(i*that.num+0,i*that.num+that.num*that.num)
+        var newData = datas.slice(i*that.num,i*that.num+that.num*that.num)
         var an = svg.selectAll("rect")
           .data(newData)
           .transition()
@@ -136,10 +139,27 @@ export default {
             return d == 0 ? "MyRect" : "Selected"
           })
           .call(function(){
-            that.non(svg,datas,i+1,length)
+            that.nonDU(svg,datas,i+1,length)
           })
       }
-      
+    },
+    nonUD: function(svg,datas,length,i){
+      var that = this;
+      console.log(i)
+      if (0 <= length*that.num) {
+        var newData = datas.slice(length*that.num,length*that.num+that.num*that.num)
+        var an = svg.selectAll("rect")
+          .data(newData)
+          .transition()
+          .delay(100*i)
+          .duration(2000)
+          .attr("class", function(d){
+            return d == 0 ? "MyRect" : "Selected"
+          })
+          .call(function(){
+            that.nonUD(svg,datas,length-1,i+1)
+          })
+      }
     }
   }
 }
