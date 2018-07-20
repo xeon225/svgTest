@@ -3,7 +3,7 @@
     <div class="clearfix">
       <div class="box-span12">
         <emojiAdd class="margint20 marginh20" :swidth="screenWidth"></emojiAdd>
-        <!-- <ledShow :swidth="screenWidth"></ledShow> -->
+        <emojiShow class="margint20 marginh20" :swidth="screenWidth"></emojiShow>
         <!-- <ledNum :swidth="screenWidth"></ledNum> -->
       </div>
     </div>
@@ -12,7 +12,7 @@
 
 <script>
 import emojiAdd from './emojiAdd.vue';
-// import ledShow from './ledShow.vue';
+import emojiShow from './emojiShow.vue';
 // import ledNum from './ledNum.vue';
 
 export default {
@@ -32,7 +32,8 @@ export default {
     }
   },
   components: {
-    emojiAdd
+    emojiAdd,
+    emojiShow
   }
 }
 </script>

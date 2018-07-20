@@ -54,7 +54,6 @@ export default {
       //   return false;
       // });
       var data = that.dataReturn(d3.set(that.dataAdd.arrayNew))
-      console.log(data)
       //在 body 里添加一个 SVG 画布 
       var removed = d3.select(".emojiAdd").selectAll("svg").remove();
       var svg = d3.select(".emojiAdd")
@@ -62,7 +61,7 @@ export default {
         .data([1])
         .enter()
         .append("svg")
-        .style("background","#000")
+        // .style("background","#000")
         .attr("viewBox", "0 0 "+width+" "+height)
         .attr("width", width)
         .attr("height", height);
@@ -90,7 +89,6 @@ export default {
         .attr("rx", num/5)
         .attr("ry", num/5)
         .attr("stroke-width", num/5)
-        .attr("stroke-dasharray", '5,5')
         .attr("width", (width/num)-4)
         .attr("height", (height/num)-4)
         .on("click",function(d,i){
@@ -126,6 +124,7 @@ export default {
       var an = svg.selectAll("rect")
         .attr("class", 'MyRect')
         .attr("style", '')
+        .attr("fill",'#846bb9')
       that.ledArray = []
     },
     dataReturn: function(d){
