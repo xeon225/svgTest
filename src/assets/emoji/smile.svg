@@ -1,0 +1,58 @@
+<svg class="smile" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 400 400;" xml:space="preserve">
+<style>
+.Selected {
+  fill: #fff;
+}
+.Selected:nth-of-type(37),.Selected:nth-of-type(38),.Selected:nth-of-type(53),.Selected:nth-of-type(54) {
+  -webkit-animation: bounce 2s ease-in-out alternate-reverse infinite;
+          animation: bounce 2s ease-in-out alternate-reverse infinite;
+}
+.Selected:nth-of-type(44),.Selected:nth-of-type(47) {
+  -webkit-animation: bounceOut 2s ease-in-out alternate-reverse infinite;
+          animation: bounceOut 2s ease-in-out alternate-reverse infinite;
+}
+
+
+@-webkit-keyframes bounce {
+  0%,
+  90% {
+    fill-opacity:1;
+  }
+  91%,
+  100% {
+    fill-opacity:0;
+  }
+}
+@keyframes bounce {
+  0%,
+  90% {
+    fill-opacity:1;
+  }
+  91%,
+  100% {
+    fill-opacity:0;
+  }
+}
+@-webkit-keyframes bounceOut {
+  0%,
+  90% {
+    fill-opacity:0;
+  }
+  91%,
+  100% {
+    fill-opacity:1;
+  }
+}
+@keyframes bounceOut {
+  0%,
+  90% {
+    fill-opacity:0;
+  }
+  91%,
+  100% {
+    fill-opacity:1;
+  }
+}
+</style>
+<g transform="translate(0,0)"><rect class="Selected num1" x="30" y="0" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num2" x="35" y="0" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num3" x="40" y="0" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num4" x="45" y="0" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num5" x="50" y="0" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num6" x="55" y="0" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num7" x="60" y="0" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num8" x="65" y="0" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num9" x="20" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num10" x="25" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num11" x="30" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num12" x="35" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num13" x="40" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num14" x="45" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num15" x="50" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num16" x="55" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num17" x="60" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num18" x="65" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num19" x="70" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num20" x="75" y="5" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num21" x="15" y="10" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num22" x="20" y="10" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num23" x="75" y="10" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num24" x="80" y="10" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num25" x="10" y="15" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num26" x="15" y="15" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num27" x="80" y="15" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num28" x="85" y="15" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num29" x="5" y="20" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num30" x="10" y="20" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num31" x="85" y="20" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num32" x="90" y="20" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num33" x="5" y="25" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num34" x="90" y="25" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num35" x="0" y="30" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num36" x="5" y="30" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num37" x="25" y="30" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num38" x="70" y="30" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num39" x="90" y="30" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num40" x="95" y="30" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num41" x="0" y="35" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num42" x="5" y="35" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num43" x="20" y="35" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num44" x="25" y="35" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num45" x="30" y="35" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num46" x="65" y="35" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num47" x="70" y="35" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num48" x="75" y="35" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num49" x="90" y="35" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num50" x="95" y="35" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num51" x="0" y="40" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num52" x="5" y="40" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num53" x="25" y="40" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num54" x="70" y="40" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num55" x="90" y="40" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num56" x="95" y="40" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num57" x="0" y="45" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num58" x="5" y="45" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num59" x="90" y="45" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num60" x="95" y="45" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num61" x="0" y="50" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num62" x="5" y="50" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num63" x="90" y="50" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num64" x="95" y="50" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num65" x="0" y="55" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num66" x="5" y="55" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num67" x="90" y="55" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num68" x="95" y="55" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num69" x="0" y="60" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num70" x="5" y="60" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num71" x="90" y="60" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num72" x="95" y="60" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num73" x="0" y="65" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num74" x="5" y="65" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num75" x="30" y="65" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num76" x="65" y="65" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num77" x="90" y="65" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num78" x="95" y="65" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num79" x="5" y="70" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num80" x="35" y="70" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num81" x="40" y="70" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num82" x="45" y="70" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num83" x="50" y="70" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num84" x="55" y="70" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num85" x="60" y="70" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num86" x="90" y="70" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num87" x="5" y="75" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num88" x="10" y="75" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num89" x="85" y="75" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num90" x="90" y="75" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num91" x="10" y="80" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num92" x="15" y="80" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num93" x="80" y="80" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num94" x="85" y="80" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num95" x="15" y="85" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num96" x="20" y="85" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num97" x="75" y="85" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num98" x="80" y="85" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num99" x="20" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num100" x="25" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num101" x="30" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num102" x="35" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num103" x="40" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num104" x="45" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num105" x="50" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num106" x="55" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num107" x="60" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num108" x="65" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num109" x="70" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num110" x="75" y="90" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num111" x="30" y="95" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num112" x="35" y="95" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num113" x="40" y="95" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num114" x="45" y="95" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num115" x="50" y="95" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num116" x="55" y="95" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num117" x="60" y="95" rx="2" ry="2" width="5" height="5"></rect><rect class="Selected num118" x="65" y="95" rx="2" ry="2" width="5" height="5"></rect></g>
+</svg>

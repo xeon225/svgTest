@@ -25,7 +25,7 @@ export default {
       // screenWidth_1: document.body.clientWidth;
       ledArray:'',
       num:20,
-      dataAdd:emojiData.svg.number[0],
+      dataAdd:emojiData.svg.number[2],
       datas:emojiData.svg.number,
       data_400:Object.keys(Array.apply(null, {length:400})).map(function(item){return 0;}),
       outD:''
