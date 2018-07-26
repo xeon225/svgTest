@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="appLeft text-white pos-f left0 top0 bottom0">
-      <div class="logo flex-container center borderb">
+      <div class="logo flex-container center borderb paddingh20">
         <img :src="weather[Math.floor(Math.random()*7)]" alt="">
         <!-- <img src="./assets/sun.svg" alt=""> -->
         <!-- <i class="icon-logo" style="font-size:40px;"></i> -->
@@ -15,7 +15,10 @@
             <router-link to="/emoji" class="text-white"><img src="./assets/emoji/smile.svg" width="40" alt=""><!-- <i class="icon-led" style="font-size:40px;"></i> --></router-link>
           </div>
           <div style="height:100px;" class="flex-container center">
-            <router-link to="/ScaleLinear" class="text-white"><i class="icon-nav_yhxwfx" style="font-size:40px;"></i></router-link>
+            <router-link to="/ScaleLinear" class="text-white"><i class="icon-table" style="font-size:40px;"></i></router-link>
+          </div>
+          <div style="height:100px;" class="flex-container center">
+            <a href="/css/index.html" class="text-white"><i class="icon-css3" style="font-size:40px;"></i></a>
           </div>
         </div>
       </div>
@@ -46,6 +49,9 @@ export default {
 </script>
 
 <style>
+body{
+  font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;
+}
 #app {
   height:100%;
 }
